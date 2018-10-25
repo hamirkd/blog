@@ -13,5 +13,7 @@ git clone https://github.com/hamirkd/blog.git
 # Ensuite
 
 cd blog
+
 npm install
+
 npm start or ng serve --open
