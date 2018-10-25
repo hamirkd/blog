@@ -1,0 +1,16 @@
+<div [ngClass]="{'list-group-item': true,
+'list-group-item-success': post.loveIts>0,
+'list-group-item-danger': post.loveIts<0}">
+  <div class="header">
+    <h3>{{post.title}}
+    <span class="badge float-right">{{post.created_at|date : "short"}}</span>
+  </h3>
+  </div>
+  <div class="content">
+    {{post.content}}
+  </div>
+  <div class="footer">
+      <button class="btn btn-success" (click)="loveit()">Love It!<span class="badge badge-light">{{post.loveIts>0?post.loveIts:''}}</span></button>
+      <button class="btn btn-danger" (click)="dontloveit()">Don't love It!<span class="badge badge-light">{{post.loveIts<0?post.loveIts*-1:''}}</span></button>
+  </div>
+</div>
