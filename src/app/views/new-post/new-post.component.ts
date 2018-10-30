@@ -23,7 +23,7 @@ export class NewPostComponent implements OnInit {
   addPost(addForm:NgForm){
     this.newPost=new Post();
     this.newPost.title=addForm.form.value['title'];
-    this.newPost.content=addForm.form.value['content'];
+    this.newPost.content=addForm.form.value['content'].replace(/(?:\r\n|\r|\n)/g, '<br>');
     this.newPost.created_at=new Date();
     this.postprovider.addPost(this.newPost);
     this.newPost=new Post();

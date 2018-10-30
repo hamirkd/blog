@@ -6,8 +6,7 @@
     <span class="badge float-right">{{post.created_at.toDate()|date: 'short'}} <span class="float-right fa fa-close" (click)="delete()"></span></span> 
   </h4>
   </div>
-  <div class="content">
-    {{post.content}}
+  <div class="content" [innerHTML]="post.content">
   </div>
   <div class="footer">
       <button class="btn btn-success" (click)="loveit()">Love It!<span class="badge badge-light">{{post.loveIts>0?post.loveIts:''}}</span></button>
