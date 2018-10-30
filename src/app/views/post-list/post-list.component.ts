@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
+import { PostproviderService } from 'src/app/provider/postprovider.service';
+import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { config } from '../../configs/app.config';
 
 @Component({
   selector: 'app-post-list',
@@ -8,14 +12,12 @@ import { Post } from 'src/app/models/post.model';
 })
 export class PostListComponent implements OnInit {
 
-  posts:Post[]=[];
-  constructor() { }
+  posts: Observable<Post[]>;
+
+  constructor(private postprovider:PostproviderService) { }
 
   ngOnInit() {
-    this.posts=[];
-    this.posts.push(new Post("Mon premier post","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut augue elit. Vestibulum diam purus, bibendum eu commodo a, finibus vitae nisl. Etiam maximus diam id magna consectetur, quis ",1));
-    this.posts.push(new Post("Mon deuxième post","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut augue elit. Vestibulum diam purus, bibendum eu commodo a, finibus vitae nisl. Etiam maximus diam id magna consectetur, quis ",-1));
-    this.posts.push(new Post("Encore un post","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut augue elit. Vestibulum diam purus, bibendum eu commodo a, finibus vitae nisl. Etiam maximus diam id magna consectetur, quis ",0));
+    this.posts=this.postprovider.posts;    
   }
 
 }

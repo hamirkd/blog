@@ -1,0 +1,28 @@
+<div class="container col-md-6">
+
+<div class="card mb-5">
+  <div class="card-header">
+    <h1>Nouveau Post</h1>
+  </div>
+  <div class="card-body p-4">
+    <form #postForm="ngForm" (ngSubmit)="addPost(postForm)" novalidate>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-home"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Titre du post" autocomplete="title" required name="title"
+          [(ngModel)]="newPost.title" #nom="ngModel">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-list"></i></span>
+        </div>
+        <textarea type="text" class="form-control" placeholder="Contenu du post" autocomplete="content" required name="content"
+          [(ngModel)]="newPost.content" #nom="ngModel" rows="5">
+          </textarea>
+      </div>
+      <button class="btn rounded-btn btn-success" [disabled]="postForm.invalid"><i class="fa fa-plus"></i> Ajouter</button>
+    </form>
+  </div>
+</div>
+</div>

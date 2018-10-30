@@ -1,12 +1,11 @@
 export class Post{
+    $key:string;
     title:string;
     content:string;
     loveIts:number;
-    created_at:Date=new Date();
-    constructor(title:string,content:string,loveIts:number){
-        this.title=title;
-        this.content=content;
-        this.loveIts=loveIts;
+    created_at:Date;
+    constructor(){
+        this.loveIts=0;
         this.created_at=new Date();
     }
 }

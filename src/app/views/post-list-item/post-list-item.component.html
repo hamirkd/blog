@@ -2,9 +2,9 @@
 'list-group-item-success': post.loveIts>0,
 'list-group-item-danger': post.loveIts<0}">
   <div class="header">
-    <h3>{{post.title}}
-    <span class="badge float-right">{{post.created_at|date : "short"}}</span>
-  </h3>
+    <h4>{{post.title}}
+    <span class="badge float-right">{{post.created_at.toDate()|date: 'short'}} <span class="float-right fa fa-close" (click)="delete()"></span></span> 
+  </h4>
   </div>
   <div class="content">
     {{post.content}}
